@@ -1,11 +1,8 @@
 import { expect } from 'chai';
-import UserRepository from '../src/UserRepository';
+import User from '../src/User';
 
-// const chai = require('chai');
-// const expect = chai.expect;
-
-describe('User Repository', () => {
-  let userData, userRepository;
+describe('User', () => {
+  let userData, user, userInfo;
 
   beforeEach(() => {
     userData = [
@@ -50,24 +47,25 @@ describe('User Repository', () => {
           33
         ]
       }];
-      userRepository = new UserRepository(userData);
+      userInfo = userData[1];
+      user = new User(userInfo);
     });
 
     it('should be a function', () => {
-      expect(UserRepository).to.be.a('function');
+      expect(User).to.be.a('function');
     });
 
-    it('should be an instance of UserRepository', () =>
+    it('should be an instance of User', () =>
     {
-      expect(userRepository).to.be.an.instanceof(UserRepository);
+      expect(user).to.be.an.instanceof(User);
     });  
 
-    it('it should be able to return user data by ID', () => {
-      expect(userRepository.findUserData(2)).to.deep.equal(userData[1]);
+    it('it should have a parameter to take user object', () => {
+      expect(user).to.deep.equal(userInfo);
     });
 
-    it('it should determine average step goal among all users', () => {
-      expect(userRepository.calculateAverageStepGoal()).to.equal(6667);
+    it('it should return user first name', () => {
+      expect(user.getFirstName()).to.equal("Jarvis");
     });
   });
   
