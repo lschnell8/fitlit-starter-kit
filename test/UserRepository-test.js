@@ -66,7 +66,7 @@ describe('User Repository', () => {
       expect(userRepository.findUserData(2)).to.deep.equal(userData[1]);
     });
 
-    it.skip('it should determine average step goal among all users', () => {
+    it('it should determine average step goal among all users', () => {
       expect(userRepository.calculateAverageStepGoal()).to.equal(6667);
     });
 

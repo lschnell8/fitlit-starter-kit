@@ -4,7 +4,8 @@ class UserRepository {
   }
 
   findUserData(id) {
-    const userData = this.users.find((id) => {return userData});
+    // const user = this.users.find((id) => {return user});
+    return this.users.find((data) => id === data.id);
   }
 
   calculateAverageStepGoal() {
