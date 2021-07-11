@@ -8,7 +8,6 @@ describe('User Repository', () => {
   let userData, userRepository;
 
   beforeEach(() => {
-    userRepository = new UserRepository(userData);
     userData = [
       {
         "id": 1,
@@ -51,35 +50,25 @@ describe('User Repository', () => {
           33
         ]
       }];
+      userRepository = new UserRepository(userData);
     });
 
     it('should be a function', () => {
       expect(UserRepository).to.be.a('function');
     });
 
-    it.skip('should be an instance of UserRepository', () =>
+    it('should be an instance of UserRepository', () =>
     {
-      expect(UserRepository).to.be.an.instanceof(UserRepository);
+      expect(userRepository).to.be.an.instanceof(UserRepository);
     });  
 
-    it.skip('it should be able to return user data by ID', () => {
-      expect(UserRepository.findUserData(2)).to.deep.equal(userData[1]);
+    it('it should be able to return user data by ID', () => {
+      expect(userRepository.findUserData(2)).to.deep.equal(userData[1]);
     });
 
     it.skip('it should determine average step goal among all users', () => {
-      expect(UserRepository.calculateAverageStepGoal()).to.equal(6667);
+      expect(userRepository.calculateAverageStepGoal()).to.equal(6667);
     });
-
-
-
 
   });
   
-
-
-
-// A UserRepository holds onto all of the User objects
-// It should have a parameter to take in user data
-// It should have methods to determine:
-// Given a user’s ID, what is their user data?
-// The average step goal amongst all users
