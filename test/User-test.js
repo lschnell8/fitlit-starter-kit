@@ -1,10 +1,8 @@
-
-
 import { expect } from 'chai';
 import User from '../src/User';
 
 describe('User', () => {
-  let userData, user;
+  let userData, user, userInfo;
 
   beforeEach(() => {
     userData = [
@@ -49,6 +47,7 @@ describe('User', () => {
           33
         ]
       }];
+      userInfo = userData[1];
       user = new User(userInfo);
     });
 
@@ -61,17 +60,12 @@ describe('User', () => {
       expect(user).to.be.an.instanceof(User);
     });  
 
-    it.skip('it should be able to return user data by ID', () => {
-      expect(userRepository.findUserData(2)).to.deep.equal(userData[1]);
+    it('it should have a parameter to take user object', () => {
+      expect(user).to.deep.equal(userInfo);
     });
 
-    it.skip('it should determine average step goal among all users', () => {
-      expect(userRepository.calculateAverageStepGoal()).to.equal(6667);
+    it('it should return user first name', () => {
+      expect(user.getFirstName()).to.equal("Jarvis");
     });
   });
   
-
-// It should have a parameter to take in a userData object
-// Each user holds on to the user properties from the data file
-// Should have a method to:
-// Return a user’s first name only

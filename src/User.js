@@ -1,26 +1,19 @@
 class User {
   constructor(userData) {
-    this.user = userData;
+    this.id = userData.id;
+    this.name = userData.name;
+    this.address = userData.address;
+    this.email = userData.email;
+    this.strideLength = userData.strideLength;
+    this.dailyStepGoal = userData.dailyStepGoal;
+    this.friends = userData.friends;
   }
 
-  findUserData(id) {
-    // const user = this.users.find((id) => {return user});
-    return this.users.find((data) => id === data.id);
+  getFirstName() {
+    const firstName = this.name.split(' ');
+    return firstName[0];
   }
 
-  calculateAverageStepGoal() {
-    // const steps = this.users.filter(user => {user.Object.values(dailyStepGoals);
-    // })
-    // console.log(steps)
-
-    // const steps = (Object.values(this.users.dailyStepGoal));
-    // console.log(steps);
-
-    const steps = this.users.reduce((accm, current) => {
-      return accm += current.dailyStepGoal
-    }, 0);
-    return Math.round(steps / this.users.length);
-  }
-}
+};
 
 export default User;
