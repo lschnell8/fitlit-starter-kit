@@ -1,5 +1,37 @@
+* {
+  border: 1px solid greenyellow;
+}
+
 body, html {
-  background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+  background-image: linear-gradient( #4D4C4C, #000);
   background-repeat: no-repeat;
+  color: #fff;
   height: 100%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+main {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+}
+
+nav {
+  width: 33.3%;
+}
+
+section {
+  display: flex;
+  width: 33.3%;   
+  flex-direction: column;
+  align-items: center;
+}
+
+ figure {
+  width: 90%;
+  align-items: center; 
+}
+
+h3 {
+  width: max-content;
 }
