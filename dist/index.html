@@ -2,6 +2,10 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <link rel= "stylesheet" type= "text/css" href= "../src/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <title>FitLit</title>
   </head>
   <body>
@@ -10,10 +14,12 @@
           <h1>FitLit</h1>
           <h2>Welcome<span>User</span></h2>
           <button>Switch User?</button>
-        <details name="Profile">
+        <details>
+          <summary>Profile</summary>
           <option>Profile Details</option>
         </details>
-        <details name="Goals">
+        <details>
+          <summary>Goals</summary>
           <details>Hydration</details>
           <details>Sleep</details>
           <details>Walking</details>
@@ -21,17 +27,18 @@
       </nav>
       <section>
         <h1>Wellness Check</h1>
-        <map>
+        <figure>
           <h3>Hydration</h3>
-        </map>
-        <map>
+        </figure>
+        <figure>
           <h3>Sleep</h3>
-        </map>
+        </figure>
       </section>
       <section>
-        <map>
+        <h1>Activities</h1>
+        <figure>
           <h3>Walking</h3>
-        </map>
+        </figure>
       </section>
     </main>
     <script src="bundle.js"></script>
