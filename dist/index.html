@@ -2,13 +2,57 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Activity Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel= "stylesheet" type= "text/css" href= "../src/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>FitLit</title>
   </head>
   <body>
-    <h1>Activity Tracker</h1>
-    <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
+    <main>
+      <aside>
+        <div>
+          <h1>FitLit</h1>
+          <h2>Welcome<span>User</span></h2>
+          <button>Switch User?</button>
+        </div>
+        <div>
 
-<!-- Do not include the scripts.js file here - it is done automatically by the webpack server -->
+          <details>
+            <summary>Profile</summary>
+            <option>Profile Details</option>
+          </details>
+          <details>
+            <summary>Goals</summary>
+            <details>
+              <summary>Hydration</summary>
+            </details>
+            <details>
+              <summary>Sleep</summary>
+            </details>
+            <details>
+              <summary>Walking</summary>
+            </details>
+          </details>
+        </div>
+      </aside>
+      <article>
+        <h1>Wellness Check</h1>
+        <section>
+          <h3>Hydration</h3>
+        </section>
+        <section>
+          <h3>Sleep</h3>
+        </section>
+      </article>
+      <article>
+        <h1>Activities</h1>
+        <section>
+          <h3>Walking</h3>
+        </section>
+      </article>
+    </main>
     <script src="bundle.js"></script>
   </body>
 </html>
