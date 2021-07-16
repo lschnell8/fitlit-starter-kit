@@ -20,6 +20,21 @@ describe('HydrationRepository', () => {
     "userID": 3,
     "date": "2019/06/18",
     "numOunces": 47
+  },
+  {
+    "userID": 1,
+    "date": "2019/06/16",
+    "numOunces": 69
+  },
+  {
+    "userID": 2,
+    "date": "2019/06/16",
+    "numOunces": 91
+  },
+  {
+    "userID": 2,
+    "date": "2019/03/11",
+    "numOunces": 91
   }];
 
   waterData = new HydrationRepository(hydrationData);
@@ -32,8 +47,6 @@ describe('HydrationRepository', () => {
   it('should be an instance of HydrationRepository', () => {
     expect(waterData).to.be.an.instanceof(HydrationRepository);
   });
-
-
 
 
   // it('should indicate the user ID', () => {
