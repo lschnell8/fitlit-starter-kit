@@ -5,7 +5,7 @@ class HydrationRepository {
     this.hydrationData = waterInfo;
   }
 
-  //function to get user by ID, instead of in each function as below.
+//function to get user by ID, instead of in each function as below.
 
   averageWaterPerDay(id) {
     const userOzPerDay = this.hydrationData.filter(user => user.userID === id);
@@ -34,18 +34,18 @@ class HydrationRepository {
     };
     // console.log(weekDates);
 
-    let newArray = [];
+    let weeklyResults = [];
     const dataForWeek = this.hydrationData.filter(user => user.userID === id).filter(user => {
       if (weekDates.includes(user.date)) {
-        let obj = {
+        let waterPerDay = {
           [user.date]: user.numOunces
         }
-        newArray.push(obj);
+        weeklyResults.push(waterPerDay);
         return user;
       };
     });
     // console.log('the week data', dataForWeek);
-    return newArray;
+    return weeklyResults;
   };
 };
 
