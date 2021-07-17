@@ -61,10 +61,12 @@ describe('HydrationRepository', () => {
   });
 
   it('should be able to return ounces drank each day over a week starting at specified date', () => {
-    expect(waterData.ozDrankInWeek(2, '2019/06/15')).to.deep.equal({
-      '2019/06/15': 75,
-      '2019/06/16': 91
-    });
+    expect(waterData.ozDrankInWeek(2, '2019/06/15')).to.deep.equal(
+      [
+        {'2019/06/15': 75},
+        {'2019/06/16': 91}
+      ]
+    );
   });
 
 });

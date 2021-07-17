@@ -28,26 +28,24 @@ class HydrationRepository {
   };
 
   ozDrankInWeek(id, date) {
-    // const userFluidDates = this.hydrationData.filter(user => user.userID === id).map(user => user.date);
     let weekDates = [date, null, null, null, null, null, null];
     for (let i=0; i<weekDates.length; i++) {
       weekDates[i] = dayjs(date).add([i], 'day').format('YYYY/MM/DD');
     };
     // console.log(weekDates);
 
-    // const userFluidDates = this.hydrationData.filter(user => user.userID === id);
-    const newVar = this.hydrationData.filter(user => user.userID === id).filter(user => {
+    let newArray = [];
+    const dataForWeek = this.hydrationData.filter(user => user.userID === id).filter(user => {
       if (weekDates.includes(user.date)) {
-        return user.numOunces;
+        let obj = {
+          [user.date]: user.numOunces
+        }
+        newArray.push(obj);
+        return user;
       };
     });
-    console.log('the new one', newVar);
-    // console.log(endDate);
-    // console.log(userFluidDates);
-    // const weekHydration = userFluidDates.reduce((obj, hydration) => {
-    //   if (o)
-    // })
-    // dayjs('2019-01-25').add(1, 'day').subtract(1, 'year').year(2009).toString()
+    // console.log('the week data', dataForWeek);
+    return newArray;
   };
 };
 
