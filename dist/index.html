@@ -14,25 +14,44 @@
       <aside>
         <div>
           <h1>FitLit</h1>
-          <h2>Welcome<span>User</span></h2>
+          <h2>Welcome<span id= 'userName'>User</span></h2>
           <button>Switch User?</button>
         </div>
         <div>
-
           <details>
             <summary>Profile</summary>
-            <option>Profile Details</option>
+            <option id= 'userProfile'>
+              Profile Details
+            </option>         
+              <li>
+                ID : <span id= 'id'>value</span>
+              </li>
+              <li>
+                Address : <span id= 'address'>address</span>
+              </li>
+              <li>
+                Email : <span id= 'email'>email</span>
+              </li> 
           </details>
           <details>
             <summary>Goals</summary>
             <details>
               <summary>Hydration</summary>
+                <li>
+                  Water Consumption : 96 fl oz
+                </li>
             </details>
             <details>
               <summary>Sleep</summary>
+                <li>
+                  Nightly Rest : 8 hours
+                </li>
             </details>
             <details>
               <summary>Walking</summary>
+                <li>
+                  Steps : 10,000
+                </li>
             </details>
           </details>
         </div>
@@ -53,6 +72,8 @@
         </section>
       </article>
     </main>
+    <!-- <script src=""></script> -->
+    <script type="text/javascript" src="../node_modules/dayjs/dayjs.min.js"></script>
     <script src="bundle.js"></script>
   </body>
 </html>
