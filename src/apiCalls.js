@@ -5,10 +5,4 @@ export const getApiData = (dataCat) => {
   .catch(error => console.log('fetch error', error))
 }; 
 
-// const retrieveData = () => {
-//   return Promise 
-// };
-
-// const allUsers = new UserRepository(allData)
-//this is where everything else that you need to run for DOM manipulation goes
 
