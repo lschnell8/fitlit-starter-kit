@@ -35,10 +35,6 @@ window.addEventListener('load', function() {
   fetchData()
 });  
 
-//Functions
-
-//Helper Functions
-
 console.log('This is the JavaScript entry file - your code begins here.');
 
 //Data Retrieval Functions
@@ -64,6 +60,7 @@ const fetchData = () => {
     displayUserSleep()
   })
 };
+
 
 //DOM Display Functions
 
@@ -98,8 +95,6 @@ const displayUserHydro = () => {
     }
   })
 };
-
-
 
 const displayUserSleep = () => {
   let chart = new Chart(sleepChart, {
