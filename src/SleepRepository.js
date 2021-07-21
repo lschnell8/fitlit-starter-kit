@@ -42,8 +42,6 @@ class SleepRepository {
         return user;
       };
     });
-    // console.log('the week data', dataForWeek);
-    // console.log('the sleep objects', weeklyResults);
     return weeklyResults;
   };
 
@@ -64,7 +62,6 @@ class SleepRepository {
         return user;
       };
     });
-    // console.log('the sleep quality objects', weeklyResults);
     return weeklyResults;
   };
 

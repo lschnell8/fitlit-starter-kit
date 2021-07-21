@@ -4,7 +4,6 @@ class UserRepository {
   }
 
   findUserData(id) {
-    // const user = this.users.find((id) => {return user});
     return this.users.find((data) => id === data.id);
   }
 
