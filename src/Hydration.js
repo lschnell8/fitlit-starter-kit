@@ -4,7 +4,6 @@ class Hydration {
     this.date = userData.date;
     this.numOunces = userData.numOunces;
   }
-
 };
 
 export default Hydration;

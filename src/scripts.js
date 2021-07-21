@@ -3,14 +3,14 @@ import {getApiData} from './apiCalls';
 
 import User from './User';
 import UserRepository from './UserRepository';
-
 import Hydration from './Hydration';
 import HydrationRepository from './HydrationRepository';
-
 import Sleep from './Sleep';
 import SleepRepository from './SleepRepository';
 
 import Chart from 'chart.js/auto';
+
+import './css/styles.css';
 
 //Global variables and Query Selectors
 let user;
@@ -20,9 +20,6 @@ let hydrationRepo;
 let sleep;
 let sleepRepo;
 
-
-// document.querySelector()
-// document.getElementById()
 const userName = document.getElementById('userName');
 const userProfile = document.getElementById('userProfile');
 const userId = document.getElementById('id');
@@ -38,29 +35,9 @@ window.addEventListener('load', function() {
   fetchData()
 });  
 
-
-//Functions
-
-
-//Helper Functions
-
-
-// An example of how you tell webpack to use a CSS file
-import './css/styles.css';
-// import Chart from '../node_modules/chart.js';
-
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-// import './images/turing-logo.png'
-
 console.log('This is the JavaScript entry file - your code begins here.');
 
-// An example of how you tell webpack to use a JS file
-
-
-//Create card info ---- Fetch user repo api, then parse into a single user --- Use UserRepository.js and User.js ----- Choose a random user-----Math.random()
-
 //Data Retrieval Functions
-
 const fetchData = () => {
   getApiData('users')
   .then((data) => {
@@ -74,7 +51,7 @@ const fetchData = () => {
     hydration = new Hydration(data.hydrationData)
     hydrationRepo = new HydrationRepository(data.hydrationData)
     displayUserHydro()
-    console.log(hydrationRepo.ozDrankInWeek(2, ))
+    console.log(hydrationRepo.ozDrankInWeek(2, '2019/06/15'))
   })
   getApiData('sleep')
   .then((data) => {
@@ -83,6 +60,7 @@ const fetchData = () => {
     displayUserSleep()
   })
 };
+
 
 //DOM Display Functions
 
@@ -117,8 +95,6 @@ const displayUserHydro = () => {
     }
   })
 };
-
-
 
 const displayUserSleep = () => {
   let chart = new Chart(sleepChart, {
