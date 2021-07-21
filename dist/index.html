@@ -14,25 +14,44 @@
       <aside>
         <div>
           <h1>FitLit</h1>
-          <h2>Welcome<span>User</span></h2>
+          <h2>Welcome<span id= 'userName'>User</span></h2>
           <button>Switch User?</button>
         </div>
         <div>
-
           <details>
             <summary>Profile</summary>
-            <option>Profile Details</option>
+            <option id= 'userProfile'>
+              Profile Details
+            </option>         
+              <li>
+                ID : <span id= 'id'>value</span>
+              </li>
+              <li>
+                Address : <span id= 'address'>address</span>
+              </li>
+              <li>
+                Email : <span id= 'email'>email</span>
+              </li> 
           </details>
           <details>
             <summary>Goals</summary>
             <details>
               <summary>Hydration</summary>
+                <li>
+                  Water Consumption : 96 fl oz
+                </li>
             </details>
             <details>
               <summary>Sleep</summary>
+                <li>
+                  Nightly Rest : 8 hours
+                </li>
             </details>
             <details>
               <summary>Walking</summary>
+                <li>
+                  Steps : 10,000
+                </li>
             </details>
           </details>
         </div>
@@ -41,15 +60,24 @@
         <h1>Wellness Check</h1>
         <section>
           <h3>Hydration</h3>
+          <div class="chart">
+            <canvas id="hydroChart" width="1" height="1"></canvas>
+          </div>
         </section>
         <section>
           <h3>Sleep</h3>
+          <div class="chart">
+            <canvas id="sleepChart" width="1" height="1"></canvas>
+          </div>
         </section>
       </article>
       <article>
         <h1>Activities</h1>
         <section>
           <h3>Walking</h3>
+          <div class="chart">
+            <canvas id="walkingChart" width="1" height="1"></canvas>
+          </div>
         </section>
       </article>
     </main>
