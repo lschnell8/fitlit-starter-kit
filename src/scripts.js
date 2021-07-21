@@ -7,20 +7,19 @@ import UserRepository from './UserRepository';
 import Hydration from './Hydration';
 import HydrationRepository from './HydrationRepository';
 
-// import Sleep from './Sleep';
-// import SleepRepository from './SleepRepository';
+import Sleep from './Sleep';
+import SleepRepository from './SleepRepository';
 
 import Chart from 'chart.js/auto';
 
 //Global variables and Query Selectors
 let user;
 let userRepo;
-// let hydration;
-// let HydrationRepo;
-// let sleep;
-// let sleepRepo;
-// let activity;
-// let activityRepo;
+let hydration;
+let hydrationRepo;
+let sleep;
+let sleepRepo;
+
 
 // document.querySelector()
 // document.getElementById()
@@ -37,9 +36,8 @@ const walkingChart = document.getElementById('walkingChart');
 //Event Listeners
 window.addEventListener('load', function() {
   fetchData()
-  
-  //this will be where we call anthing that retrieves API
 });  
+
 
 //Functions
 
@@ -70,64 +68,21 @@ const fetchData = () => {
     userRepo = new UserRepository(data.userData)
     displayUserData(user)
     compareAvgSteps()
-    getApiData('hydration')
-
+  })
+  getApiData('hydration')
+  .then((data) => {
+    hydration = new Hydration(data.hydrationData)
+    hydrationRepo = new HydrationRepository(data.hydrationData)
+    displayUserHydro()
+    console.log(hydrationRepo.ozDrankInWeek(2, ))
+  })
+  getApiData('sleep')
+  .then((data) => {
+    sleep = new Sleep(data.sleepData)
+    sleepRepo = new SleepRepository(data.sleepData)
+    displayUserSleep()
   })
 };
-
-// const createUser = () => {
-//   getApiData('users')
-//   .then(response => user = new User(response.userData[Math.floor(Math.random() * response.userData.length)]))
-//   .then(response => 
-//     console.log('userInstance', user))
-//   .then(response => displayUserData(user))
-//   .then(response => console.log(user))
-//   }
-  
-//   const createUserRepo = () => {
-//     getApiData('users')
-//     .then(response => userRepo = new UserRepository(response.userData))
-//     .then(response => console.log('userRepo', userRepo))
-//     .then(response => compareAvgSteps(user))
-//   }
-
-// const createHydroRepo = () => {
-//   getApiData('hydration')
-//   .then(response =>  hydroRepo = new HydrationRepository(response.hydrationData)
-//   .then(response => console.log('HydrationRepo', hydroRepo))
-//   .then(response => 
-//       //insert display helper function
-//       )
-// }
-
-// const createUserHydro = () => {
-//   getApiData('hydration')
-//   .then(response => userHydration = new Hydration(response.hydrationData))
-//   .then(response => console.log('userHydration', userHydration))
-//   .then(response =>
-//       //insert display helper function
-//     )
-// }
-
-// const createSleepRepo = () => {
-//   getApiData('sleep')
-//   .then(response => sleepRepo = new SleepRepository(response.sleepData))
-//   .then(response => console.log('sleepRepo', sleepRepo))
-//   .then(response => 
-//       //insert display helper function
-//     ))
-// }
-
-// const createSleepData = () => {
-// getApiData('sleep')
-// .then(response => userSleep = new Sleep(response.sleepData))
-// .then(response => console.log('userSleep', userSleep))
-// .then(response => 
-//       //insert display helper function
-//     ))
-// }
-
-
 
 //DOM Display Functions
 
@@ -140,33 +95,62 @@ const displayUserData = () => {
 };
 
 
+const displayUserHydro = () => {
+  let chart = new Chart(hydroChart, {
+    type: 'line',
+    data: {
+      labels: [""],
+      datasets: [
+        {
+          label: "Water in fluid ounces",
+          backgroundColor: ["#3e95cd", "#8e5ea2"],
+          data: []
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Water Consumption'
+      }
+    }
+  })
+};
 
-// // const displayHydroRepo = () => {
- 
-// // };
 
-// // const displayUserHydro = () => {
-  
-// // };
 
-// // const displaySleepRepo = () => {
-  
-// // };
-
-// // const displayUserSleep = () => {
-  
-// // };
-
+const displayUserSleep = () => {
+  let chart = new Chart(sleepChart, {
+    type: 'line',
+    data: {
+      labels: [""],
+      datasets: [
+        {
+          label: "Sleep",
+          backgroundColor: ["#3e95cd", "#8e5ea2"],
+          data: []
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Sleep'
+      }
+    }
+  })
+};
 
 const compareAvgSteps = () => {
-  console.log('hey!', user)
   let chart = new Chart(walkingChart, {
     type: 'bar',
     data: {
       labels: ["Average User Steps", "My Steps"],
       datasets: [
         {
-          label: "Population (millions)",
+          label: "Average Steps",
           backgroundColor: ["#3e95cd", "#8e5ea2"],
           data: [userRepo.calculateAverageStepGoal(), user.dailyStepGoal]
         }
@@ -176,7 +160,7 @@ const compareAvgSteps = () => {
       legend: { display: false },
       title: {
         display: true,
-        text: 'Predicted world population (millions) in 2050'
+        text: 'Average Steps'
       }
     }
   })

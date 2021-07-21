@@ -27,6 +27,7 @@ class HydrationRepository {
     return ozDrunkOnDate.numOunces;
   };
 
+
   ozDrankInWeek(id, date) {
     let weekDates = [date, null, null, null, null, null, null];
     for (let i=0; i<weekDates.length; i++) {
